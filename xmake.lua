@@ -1,0 +1,8 @@
+add_rules("mode.debug", "mode.release")
+add_requires("tbb 2022.0.0")
+target("AutoSign")
+  set_languages("c++23")
+  add_packages("tbb")
+  add_defines("__AVX2__")
+  set_kind("binary")
+  add_files("main.cpp")
