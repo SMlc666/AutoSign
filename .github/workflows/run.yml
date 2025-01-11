@@ -18,7 +18,7 @@ jobs:
     - name: install packages
       run: sudo apt update && sudo apt upgrade -y && sudo apt install -y wget 7zip build-essential
     - name: chmod
-      run: chmod 777 run.sh
+      run: chmod 777 down.sh
     - name: download
       run: sudo ./down.sh
     - name: unzip
