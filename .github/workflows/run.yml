@@ -15,7 +15,24 @@ jobs:
       with:
         xmake-version: '2.9.6'
         actions-cache-folder: '.xmake-cache'
+    - name: install packages
+      run: sudo apt update && sudo apt upgrade -y
+      run: sudo apt install -y wget 7zip-standalone build-essential
     - name: chmod
       run: chmod 777 run.sh
+    - name: download
+      run: sudo ./down.sh
+    - name: unzip
+      run: 7zz x android.apk -oandroid_app
+    - name: copy so
+      run: cp android_app/lib/arm64-v8a/libminecraftpe.so libminecraftpe.so
+    - name: config
+      run: xmake f -p linux -a x86_64 -m release
+    - name: build
+      run: xmake
+    - name: copy build
+      run: cp build/linux/x86_64/release/AutoSign ./
+    - name: chmod
+      run: chmod 777 AutoSign
     - name: run
-      run: sudo ./run.sh
+      run: ./AutoSign

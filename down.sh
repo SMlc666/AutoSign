@@ -1,11 +1,6 @@
 #!/bin/bash
 downUrl="https://adl.netease.com/d/g/mc/c/gwnew?type=android"
 workDir=$(pwd)
-AppArch="arm64-v8a"
-BuildArch="x86_64"
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y wget 7zip-standalone clang-17
 echo "Current work directory is: $workDir"
 echo "Downloading from: $downUrl"
 wget -O $workDir/script.js $downUrl
