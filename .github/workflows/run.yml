@@ -26,7 +26,7 @@ jobs:
     - name: copy so
       run: cp android_app/lib/arm64-v8a/libminecraftpe.so libminecraftpe.so
     - name: config
-      run: xmake f -p linux -a x86_64 -m release
+      run: xmake f -p linux -a x86_64 -m release -y
     - name: build
       run: xmake
     - name: copy build
