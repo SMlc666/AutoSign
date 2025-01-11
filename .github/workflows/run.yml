@@ -16,8 +16,7 @@ jobs:
         xmake-version: '2.9.6'
         actions-cache-folder: '.xmake-cache'
     - name: install packages
-      run: sudo apt update && sudo apt upgrade -y
-      run: sudo apt install -y wget 7zip-standalone build-essential
+      run: sudo apt update && sudo apt upgrade -y && sudo apt install -y wget 7zip-standalone build-essential
     - name: chmod
       run: chmod 777 run.sh
     - name: download
