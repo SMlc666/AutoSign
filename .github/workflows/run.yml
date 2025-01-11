@@ -16,7 +16,7 @@ jobs:
         xmake-version: '2.9.6'
         actions-cache-folder: '.xmake-cache'
     - name: install packages
-      run: sudo apt update && sudo apt upgrade -y && sudo apt install -y wget 7zip build-essential
+      run: sudo apt update && sudo apt upgrade -y && sudo apt install -y wget 7zip clang-17
     - name: chmod
       run: chmod 777 down.sh
     - name: download
@@ -26,7 +26,7 @@ jobs:
     - name: copy so
       run: cp android_app/lib/arm64-v8a/libminecraftpe.so libminecraftpe.so
     - name: config
-      run: xmake f -p linux -a x86_64 -m release -y
+      run: xmake f -p linux -a x86_64 -m release --toolchain=clang-17 -y
     - name: build
       run: xmake
     - name: copy build
